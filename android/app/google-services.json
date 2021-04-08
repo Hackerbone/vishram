@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "138678584810",
+    "project_id": "vishram-59171",
+    "storage_bucket": "vishram-59171.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138678584810:android:fff91a48d2bd5c48cf5e93",
+        "android_client_info": {
+          "package_name": "com.teamcodiene.vishram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "138678584810-64q9tkbsh4hs3p550dm8afmjboajbse6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJYZfzKz-xozJXEXelh4dnaBbKqObpN00"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "138678584810-64q9tkbsh4hs3p550dm8afmjboajbse6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
