@@ -28,6 +28,7 @@ class _MainScreenState extends State<MainScreen> {
   late Position currentPosition;
   var geoLocator = Geolocator();
   double bottomPaddingOfMap = 0;
+  double topPaddingOfMap = 0;
 
   void locatePosition() async {
     Position position = await geoLocator.getCurrentPosition(
@@ -146,30 +147,50 @@ class _MainScreenState extends State<MainScreen> {
                   style: TextStyle(fontSize: 15.0),
                 ),
               ),
+              ListTile(
+                title: TextButton(
+                  onPressed: () {
+                    _auth.signOut();
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    'logout',
+                    style: TextStyle(
+                      fontSize: 12.0,
+                      color: HexColor('#4CD964'),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
       ),
       body: Stack(
         children: <Widget>[
-          GoogleMap(
-            padding: EdgeInsets.only(bottom: bottomPaddingOfMap),
-            mapType: MapType.normal,
-            myLocationButtonEnabled: true,
-            zoomGesturesEnabled: true,
-            zoomControlsEnabled: true,
-            initialCameraPosition: _kGooglePlex,
-            onMapCreated: (GoogleMapController controller) {
-              _controllerGoogleMap.complete(controller);
+          Center(
+            child: GoogleMap(
+              padding: EdgeInsets.only(
+                  bottom: bottomPaddingOfMap, top: topPaddingOfMap),
+              mapType: MapType.normal,
+              myLocationButtonEnabled: true,
+              myLocationEnabled: true,
+              zoomGesturesEnabled: true,
+              zoomControlsEnabled: true,
+              initialCameraPosition: _kGooglePlex,
+              onMapCreated: (GoogleMapController controller) {
+                _controllerGoogleMap.complete(controller);
 
-              newGoogleMapController = controller;
+                newGoogleMapController = controller;
 
-              setState(() {
-                bottomPaddingOfMap = 320.0;
-              });
+                setState(() {
+                  bottomPaddingOfMap = 320.0;
+                  topPaddingOfMap = 44.0;
+                });
 
-              locatePosition();
-            },
+                locatePosition();
+              },
+            ),
           ),
           Positioned(
             top: 50.0,
