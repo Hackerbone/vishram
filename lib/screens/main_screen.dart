@@ -4,10 +4,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:provider/provider.dart';
 import 'package:vishram/AllWidgets/Divider.dart';
+import 'package:vishram/Assistants/assistantMethods.dart';
+import 'package:vishram/DataHandler/appData.dart';
 import 'package:vishram/constants.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:vishram/screens/welcome_screen.dart';
 
 class MainScreen extends StatefulWidget {
   static String id = 'main_screen';
@@ -22,6 +26,8 @@ class _MainScreenState extends State<MainScreen> {
 
   Completer<GoogleMapController> _controllerGoogleMap = Completer();
   late GoogleMapController newGoogleMapController;
+
+  Set<Marker> _markers = {};
 
   GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
 
@@ -41,6 +47,11 @@ class _MainScreenState extends State<MainScreen> {
 
     newGoogleMapController
         .animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
+
+    String address =
+        await AssistantMethods().searchCoordinateAddress(position, context);
+
+    print("This is your address :: " + address);
   }
 
   static final CameraPosition _kGooglePlex = CameraPosition(
@@ -151,7 +162,7 @@ class _MainScreenState extends State<MainScreen> {
                 title: TextButton(
                   onPressed: () {
                     _auth.signOut();
-                    Navigator.pop(context);
+                    Navigator.pushNamed(context, WelcomeScreen.id);
                   },
                   child: Text(
                     'logout',
@@ -184,12 +195,22 @@ class _MainScreenState extends State<MainScreen> {
                 newGoogleMapController = controller;
 
                 setState(() {
+                  _markers.add(Marker(
+                      markerId: MarkerId("id-1"),
+                      position: LatLng(17.633935, 82.893665)));
+                  _markers.add(Marker(
+                      markerId: MarkerId("id-2"),
+                      position: LatLng(17.280278, 82.438660)));
+                });
+
+                setState(() {
                   bottomPaddingOfMap = 320.0;
                   topPaddingOfMap = 44.0;
                 });
 
                 locatePosition();
               },
+              markers: _markers,
             ),
           ),
           Positioned(
@@ -313,7 +334,15 @@ class _MainScreenState extends State<MainScreen> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Add Home"),
+                            Text(
+                              "Add Home",
+                              // Provider.of<AppData>(context).pickUpLocation !=
+                              //         null
+                              //     ? Provider.of<AppData>(context)
+                              //         .pickUpLocation
+                              //         .placeName
+                              //     : "Add Home",
+                            ),
                             SizedBox(
                               height: 4.0,
                             ),
