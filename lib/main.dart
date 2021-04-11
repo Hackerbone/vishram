@@ -26,7 +26,7 @@ class Vishram extends StatelessWidget {
         //     body1: TextStyle(color: Colors.black54),
         //   ),
         // ),
-        initialRoute: WelcomeScreen.id,
+        initialRoute: MainScreen.id,
         routes: {
           WelcomeScreen.id: (context) => WelcomeScreen(),
           LoginScreen.id: (context) => LoginScreen(),

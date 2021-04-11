@@ -196,11 +196,19 @@ class _MainScreenState extends State<MainScreen> {
 
                 setState(() {
                   _markers.add(Marker(
-                      markerId: MarkerId("id-1"),
-                      position: LatLng(17.633935, 82.893665)));
+                    markerId: MarkerId("id-1"),
+                    position: LatLng(17.633935, 82.893665),
+                    infoWindow: InfoWindow(
+                        title: "Vishram Spot 1",
+                        snippet: "One stop for the rest stop"),
+                  ));
                   _markers.add(Marker(
-                      markerId: MarkerId("id-2"),
-                      position: LatLng(17.280278, 82.438660)));
+                    markerId: MarkerId("id-2"),
+                    position: LatLng(17.280278, 82.438660),
+                    infoWindow: InfoWindow(
+                        title: "Vishram Spot 2",
+                        snippet: "One stop for the rest stop"),
+                  ));
                 });
 
                 setState(() {
