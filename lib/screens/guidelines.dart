@@ -6,14 +6,14 @@ import 'package:vishram/screens/registration_screen.dart';
 import 'package:vishram/screens/quality_assurance.dart';
 import 'package:vishram/screens/welcome_screen.dart';
 
-class FindRestStops extends StatefulWidget {
-  static String id = 'find_rest_stops';
+class Guildline extends StatefulWidget {
+  static String id = 'guidelines';
 
   @override
-  _FindRestStopsState createState() => _FindRestStopsState();
+  _GuildlineState createState() => _GuildlineState();
 }
 
-class _FindRestStopsState extends State<FindRestStops>
+class _GuildlineState extends State<Guildline>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
 
@@ -44,18 +44,18 @@ class _FindRestStopsState extends State<FindRestStops>
           image: DecorationImage(
               colorFilter: new ColorFilter.mode(
                   Colors.black.withOpacity(1.0), BlendMode.dstATop),
-              image: AssetImage('images/findRestStops.png'),
+              image: AssetImage('images/qabg.png'),
               fit: BoxFit.fill),
         ),
         child: Container(
           height: MediaQuery.of(context).size.height,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, WelcomeScreen.id);
+                  Navigator.pushNamed(context, RegistrationScreen.id);
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -78,14 +78,17 @@ class _FindRestStopsState extends State<FindRestStops>
                 right: 0.0,
                 bottom: 0.0,
                 child: Container(
-                  margin: EdgeInsets.fromLTRB(0, 200, 0, 0),
+                  margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                   padding: EdgeInsets.all(20.0),
-                  height: 500.0,
+                  height: MediaQuery.of(context).size.height * 0.8,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(18.0),
-                        topRight: Radius.circular(18.0)),
+                      topLeft: Radius.circular(18.0),
+                      topRight: Radius.circular(18.0),
+                      bottomLeft: Radius.circular(18.0),
+                      bottomRight: Radius.circular(18.0),
+                    ),
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black,
@@ -115,7 +118,7 @@ class _FindRestStopsState extends State<FindRestStops>
                           padding: const EdgeInsets.symmetric(vertical: 20),
                           child: Center(
                             child: Text(
-                              'Find Rest Stops',
+                              'Our Guidelines',
                               style: TextStyle(
                                   fontSize: 24.0,
                                   fontFamily: "Brand-Bold",
@@ -123,72 +126,48 @@ class _FindRestStopsState extends State<FindRestStops>
                             ),
                           ),
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 10),
-                              child: SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.8,
-                                child: Text(
-                                  'Vishram provides high quality services at reststops. Just book a rest timing and check-in seamlessly without any paper work. With digitisation our services are paperless and it\'s effortless for the user to check-in and book a reststop',
-                                  style: TextStyle(fontSize: 14.0),
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 40.0, vertical: 10.0),
-                              child: Material(
-                                color: HexColor("#4cd964"),
-                                borderRadius: BorderRadius.circular(60.0),
-                                elevation: 5.0,
-                                child: MaterialButton(
-                                  onPressed: () {
-                                    Navigator.pushNamed(
-                                        context, QualityAssurance.id);
-                                  },
-                                  minWidth: 200.0,
-                                  height: 42.0,
-                                  child: Text(
-                                    'Next',
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                ),
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 20.0, horizontal: 10),
+                              child: Text(
+                                '1.) Clean, hygienic facillities with regular sanitation',
+                                style: TextStyle(fontSize: 15),
                               ),
                             ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 40.0, vertical: 10.0),
-                                child: Material(
-                                  color: HexColor("#ffffff"),
-                                  elevation: 5.0,
-                                  borderRadius: BorderRadius.circular(60.0),
-                                  child: MaterialButton(
-                                    onPressed: () {
-                                      Navigator.pushNamed(
-                                          context, RegistrationScreen.id);
-                                    },
-                                    minWidth: 200.0,
-                                    height: 42.0,
-                                    child: Text(
-                                      'Skip',
-                                      style:
-                                          TextStyle(color: HexColor("#4cd964")),
-                                    ),
-                                  ),
-                                ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 20.0, horizontal: 10),
+                              child: Text(
+                                '2.) Regular audit of food/cleanliness',
+                                style: TextStyle(fontSize: 15),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 20.0, horizontal: 10),
+                              child: Text(
+                                '3.) Ensure safety and security of customers',
+                                style: TextStyle(fontSize: 15),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 20.0, horizontal: 10),
+                              child: Text(
+                                '4.) Fresh stock of perishables',
+                                style: TextStyle(fontSize: 15),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 20.0, horizontal: 10),
+                              child: Text(
+                                '5.) Ensuring COVID-19 norms are met',
+                                style: TextStyle(fontSize: 15),
                               ),
                             ),
                           ],

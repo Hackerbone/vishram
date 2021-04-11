@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vishram/DataHandler/appData.dart';
+import 'package:vishram/screens/guidelines.dart';
 
 import 'package:vishram/screens/stops_list.dart';
 
@@ -43,6 +44,7 @@ class Vishram extends StatelessWidget {
           FindRestStops.id: (context) => FindRestStops(),
           QualityAssurance.id: (context) => QualityAssurance(),
           VishramSpot.id: (context) => VishramSpot(),
+          Guildline.id: (context) => Guildline(),
         },
       ),
     );

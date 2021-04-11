@@ -27,23 +27,24 @@ class _StopsListState extends State<StopsList> {
           child: Stack(
             children: <Widget>[
               TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      children: [
-                        Icon(Icons.arrow_back),
-                        Text(
-                          "Back",
-                          style: TextStyle(
-                            fontSize: 15.0,
-                          ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Icon(Icons.arrow_back),
+                      Text(
+                        "Back",
+                        style: TextStyle(
+                          fontSize: 15.0,
                         ),
-                      ],
-                    ),
-                  )),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
               Container(
                 padding:
                     EdgeInsets.only(left: 20, bottom: 20, right: 20, top: 40),

@@ -3,6 +3,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:vishram/screens/main_screen.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:vishram/screens/registration_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   static String id = 'login_screen';
@@ -91,6 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     password = value;
                   },
                   decoration: InputDecoration(
+                    fillColor: Colors.white,
                     hintText: 'Enter your password.',
                     contentPadding:
                         EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
@@ -144,6 +146,30 @@ class _LoginScreenState extends State<LoginScreen> {
                         'Log In',
                         style: TextStyle(color: Colors.white),
                       ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Center(child: Text('Don\'t have an account?')),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, RegistrationScreen.id);
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Center(
+                          child: Text(
+                            "Signup",
+                            style: TextStyle(
+                                fontSize: 15.0, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
