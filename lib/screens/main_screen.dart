@@ -11,7 +11,10 @@ import 'package:vishram/DataHandler/appData.dart';
 import 'package:vishram/constants.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:vishram/screens/stops_list.dart';
 import 'package:vishram/screens/welcome_screen.dart';
+import 'package:vishram/Models/technician.dart';
+import 'package:vishram/Models/global.dart';
 
 class MainScreen extends StatefulWidget {
   static String id = 'main_screen';
@@ -159,6 +162,16 @@ class _MainScreenState extends State<MainScreen> {
                 ),
               ),
               ListTile(
+                onTap: () {
+                  Navigator.pushNamed(context, StopsList.id);
+                },
+                leading: Icon(Icons.place),
+                title: Text(
+                  "Our Rest Stops",
+                  style: TextStyle(fontSize: 15.0),
+                ),
+              ),
+              ListTile(
                 title: TextButton(
                   onPressed: () {
                     _auth.signOut();
@@ -212,7 +225,7 @@ class _MainScreenState extends State<MainScreen> {
                 });
 
                 setState(() {
-                  bottomPaddingOfMap = 320.0;
+                  bottomPaddingOfMap = 450.0;
                   topPaddingOfMap = 44.0;
                 });
 
@@ -257,7 +270,7 @@ class _MainScreenState extends State<MainScreen> {
             right: 0.0,
             bottom: 0.0,
             child: Container(
-              height: 320.0,
+              height: 450.0,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -394,7 +407,7 @@ class _MainScreenState extends State<MainScreen> {
                           ],
                         )
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),
