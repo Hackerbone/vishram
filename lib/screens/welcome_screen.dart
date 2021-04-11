@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:vishram/screens/login_screen.dart';
 import 'package:vishram/screens/registration_screen.dart';
+import 'package:vishram/screens/find_rest_stops.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static String id = 'welcome_screen';
@@ -68,7 +69,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                     elevation: 5.0,
                     child: MaterialButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, RegistrationScreen.id);
+                        Navigator.pushNamed(context, FindRestStops.id);
                       },
                       minWidth: 200.0,
                       height: 42.0,

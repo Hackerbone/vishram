@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vishram/DataHandler/appData.dart';
+
 import 'package:vishram/screens/stops_list.dart';
+
+import 'package:vishram/screens/find_rest_stops.dart';
+import 'package:vishram/screens/quality_assurance.dart';
+
 import 'package:vishram/screens/welcome_screen.dart';
 import 'package:vishram/screens/login_screen.dart';
 import 'package:vishram/screens/registration_screen.dart';
@@ -34,6 +39,8 @@ class Vishram extends StatelessWidget {
           RegistrationScreen.id: (context) => RegistrationScreen(),
           MainScreen.id: (context) => MainScreen(),
           StopsList.id: (context) => StopsList(),
+          QualityAssurance.id: (context) => QualityAssurance(),
+          FindRestStops.id: (context) => FindRestStops(),
         },
       ),
     );
