@@ -5,7 +5,7 @@ import 'package:vishram/screens/registration_screen.dart';
 import 'package:vishram/screens/find_rest_stops.dart';
 
 class QualityAssurance extends StatefulWidget {
-  static String id = 'find_rest_stops';
+  static String id = 'quality_assurance';
 
   @override
   _QualityAssuranceState createState() => _QualityAssuranceState();
@@ -48,7 +48,7 @@ class _QualityAssuranceState extends State<QualityAssurance>
         child: Container(
           height: MediaQuery.of(context).size.height,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Row(
@@ -64,6 +64,8 @@ class _QualityAssuranceState extends State<QualityAssurance>
                 right: 0.0,
                 bottom: 0.0,
                 child: Container(
+                  padding: EdgeInsets.all(20.0),
+                  height: 500.0,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
@@ -80,14 +82,20 @@ class _QualityAssuranceState extends State<QualityAssurance>
                   ),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 24.0, vertical: 0),
+                        horizontal: 10.0, vertical: 0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Padding(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 20.0, vertical: 10),
-                            child: Image.asset('images/VI.png')),
+                            child: Hero(
+                              tag: 'mobilelogo',
+                              child: Image.asset(
+                                'images/VI.png',
+                                width: 80.0,
+                              ),
+                            )),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 20),
                           child: Center(

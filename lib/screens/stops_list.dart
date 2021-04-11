@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:vishram/AllWidgets/Divider.dart';
 import 'package:vishram/screens/main_screen.dart';
+import 'package:vishram/screens/vishram_spot.dart';
 
 class StopsList extends StatefulWidget {
   static String id = 'stops_list';
@@ -26,11 +27,23 @@ class _StopsListState extends State<StopsList> {
           child: Stack(
             children: <Widget>[
               TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: Text("Back"),
-              ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        Icon(Icons.arrow_back),
+                        Text(
+                          "Back",
+                          style: TextStyle(
+                            fontSize: 15.0,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
               Container(
                 padding:
                     EdgeInsets.only(left: 20, bottom: 20, right: 20, top: 40),
@@ -107,9 +120,15 @@ class _StopsListState extends State<StopsList> {
                                         //         borderRadius:
                                         //             new BorderRadius.circular(
                                         //                 30.0))),
-                                        Icon(
-                                          Icons.info_outline,
-                                          color: Colors.green,
+                                        FlatButton(
+                                          onPressed: () {
+                                            Navigator.pushNamed(
+                                                context, VishramSpot.id);
+                                          },
+                                          child: Icon(
+                                            Icons.info_outline,
+                                            color: Colors.green,
+                                          ),
                                         ),
                                       ],
                                     ),

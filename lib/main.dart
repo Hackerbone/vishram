@@ -6,6 +6,7 @@ import 'package:vishram/screens/stops_list.dart';
 
 import 'package:vishram/screens/find_rest_stops.dart';
 import 'package:vishram/screens/quality_assurance.dart';
+import 'package:vishram/screens/vishram_spot.dart';
 
 import 'package:vishram/screens/welcome_screen.dart';
 import 'package:vishram/screens/login_screen.dart';
@@ -32,15 +33,16 @@ class Vishram extends StatelessWidget {
         //     body1: TextStyle(color: Colors.black54),
         //   ),
         // ),
-        initialRoute: MainScreen.id,
+        initialRoute: WelcomeScreen.id,
         routes: {
           WelcomeScreen.id: (context) => WelcomeScreen(),
           LoginScreen.id: (context) => LoginScreen(),
           RegistrationScreen.id: (context) => RegistrationScreen(),
           MainScreen.id: (context) => MainScreen(),
           StopsList.id: (context) => StopsList(),
-          QualityAssurance.id: (context) => QualityAssurance(),
           FindRestStops.id: (context) => FindRestStops(),
+          QualityAssurance.id: (context) => QualityAssurance(),
+          VishramSpot.id: (context) => VishramSpot(),
         },
       ),
     );

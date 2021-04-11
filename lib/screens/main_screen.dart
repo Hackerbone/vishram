@@ -12,6 +12,7 @@ import 'package:vishram/constants.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:vishram/screens/stops_list.dart';
+import 'package:vishram/screens/vishram_spot.dart';
 import 'package:vishram/screens/welcome_screen.dart';
 import 'package:vishram/Models/technician.dart';
 import 'package:vishram/Models/global.dart';
@@ -209,6 +210,9 @@ class _MainScreenState extends State<MainScreen> {
 
                 setState(() {
                   _markers.add(Marker(
+                    onTap: () {
+                      Navigator.pushNamed(context, VishramSpot.id);
+                    },
                     markerId: MarkerId("id-1"),
                     position: LatLng(17.633935, 82.893665),
                     infoWindow: InfoWindow(

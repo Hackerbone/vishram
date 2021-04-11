@@ -1,4 +1,5 @@
 import 'package:flutter/animation.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:vishram/screens/registration_screen.dart';
@@ -48,7 +49,7 @@ class _FindRestStopsState extends State<FindRestStops>
         child: Container(
           height: MediaQuery.of(context).size.height,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Positioned(
@@ -56,6 +57,8 @@ class _FindRestStopsState extends State<FindRestStops>
                 right: 0.0,
                 bottom: 0.0,
                 child: Container(
+                  padding: EdgeInsets.all(20.0),
+                  height: 500.0,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
@@ -72,14 +75,20 @@ class _FindRestStopsState extends State<FindRestStops>
                   ),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 24.0, vertical: 0),
+                        horizontal: 10.0, vertical: 0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Padding(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 20.0, vertical: 10),
-                            child: Image.asset('images/VI.png')),
+                            child: Hero(
+                              tag: 'mobilelogo',
+                              child: Image.asset(
+                                'images/VI.png',
+                                width: 80.0,
+                              ),
+                            )),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 20),
                           child: Center(
